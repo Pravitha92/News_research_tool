@@ -45,6 +45,8 @@ if process_url_clicked:
     time.sleep(2)
 
     # Save the FAISS index to a pickle file
+    # Saving the FAISS index to a pickle file after embedding the chunks allows us to reuse the index without recomputing the embeddings every time. 
+    #This makes future searches faster and avoids the need to process the same data repeatedly, saving time and computational resources.
     with open(file_path, "wb") as f:
         pickle.dump(vectorstore_openai, f)
 
